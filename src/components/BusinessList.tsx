@@ -17,7 +17,6 @@ export default function BusinessList() {
             href="/business"
             className="flex items-center gap-4 p-3.5 rounded-xl bg-white/45 border border-white/65 hover:translate-x-0.5 transition-transform"
           >
-            <div className="w-10 h-10 rounded-[12px] bg-white/40 border border-white/60 shrink-0" />
             <div className="min-w-0">
               <p className="text-[15px] font-medium text-[var(--text-main)]">{title}</p>
               <p className="text-[12px] text-[var(--text-secondary)] truncate">{desc}</p>

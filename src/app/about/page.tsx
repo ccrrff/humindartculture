@@ -10,15 +10,8 @@ export default function AboutPage() {
         <span className="inline-block text-[11px] tracking-[0.12em] uppercase text-[var(--text-secondary)] bg-white/50 border border-white/70 rounded-full px-3 py-1 mb-5">
           대표 인사말
         </span>
-        <div className="flex gap-6 items-start">
-          <div className="w-[96px] h-[96px] rounded-full bg-white/40 border border-white/60 shrink-0" />
-          <div>
-            <p className="text-[15px] text-[var(--text-main)] leading-relaxed mb-3">{greeting}</p>
-            <p className="text-[13px] text-[var(--text-secondary)]">
-              {ceoName} · {ceoRole}
-            </p>
-          </div>
-        </div>
+        <p className="text-[15px] text-[var(--text-main)] leading-relaxed mb-2">{greeting}</p>
+        <p className="text-[13px] text-[var(--text-secondary)]">{ceoName} · {ceoRole}</p>
       </section>
 
       {/* 비전·미션 */}
@@ -51,10 +44,9 @@ export default function AboutPage() {
         <p className="text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-4">팀 소개</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {team.map((member) => (
-            <div key={member.name} className="flex flex-col items-center gap-2">
-              <div className="w-[72px] h-[72px] rounded-xl bg-white/40 border border-white/60" />
+            <div key={member.name} className="p-4 rounded-xl bg-white/45 border border-white/65 text-center">
               <p className="text-[13px] font-semibold text-[var(--text-main)]">{member.name}</p>
-              <p className="text-[11px] text-[var(--text-secondary)]">{member.role}</p>
+              <p className="text-[11px] text-[var(--text-secondary)] mt-1">{member.role}</p>
             </div>
           ))}
         </div>

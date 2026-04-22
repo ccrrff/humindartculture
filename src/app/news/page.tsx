@@ -12,15 +12,12 @@ export default function NewsPage() {
           {awards.map((award) => (
             <div
               key={award.title}
-              className="flex items-center gap-4 p-4 rounded-[16px] bg-white/45 border border-white/65"
+              className="p-4 rounded-[16px] bg-white/45 border border-white/65"
             >
-              <div className="w-8 h-8 rounded-lg bg-white/40 border border-white/60 shrink-0" />
-              <div>
-                <p className="text-[14px] font-semibold text-[var(--text-main)]">{award.title}</p>
-                <p className="text-[12px] text-[var(--text-secondary)]">
-                  {award.year} · {award.organization}
-                </p>
-              </div>
+              <p className="text-[14px] font-semibold text-[var(--text-main)]">{award.title}</p>
+              <p className="text-[12px] text-[var(--text-secondary)] mt-0.5">
+                {award.year} · {award.organization}
+              </p>
             </div>
           ))}
         </div>
