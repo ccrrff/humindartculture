@@ -2,6 +2,7 @@
 export interface TeamMember {
   name: string;
   role: string;
+  image?: string;
 }
 
 export interface HistoryItem {
@@ -12,6 +13,7 @@ export interface HistoryItem {
 export interface AboutData {
   ceoName: string;
   ceoRole: string;
+  ceoImage?: string;
   greeting: string;
   vision: string;
   mission: string;
