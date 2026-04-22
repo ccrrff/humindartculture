@@ -1,5 +1,8 @@
 @import "tailwindcss";
+@import "../styles/glass.css";
 
 body {
+  background: var(--body-bg);
+  color: var(--text-main);
   font-family: system-ui, sans-serif;
 }
