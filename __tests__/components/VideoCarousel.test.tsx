@@ -51,4 +51,10 @@ describe('VideoCarousel', () => {
     const dots = screen.getAllByRole('listitem');
     expect(dots.length).toBe(MOCK_VIDEOS.length);
   });
+
+  it('ArrowRight 키 입력 시 다음 영상으로 이동한다', () => {
+    render(<VideoCarousel videos={MOCK_VIDEOS} />);
+    fireEvent.keyDown(window, { key: 'ArrowRight' });
+    expect(screen.getByText('영상 B')).toBeInTheDocument();
+  });
 });

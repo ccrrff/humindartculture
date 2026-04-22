@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import GlassNav from '@/components/GlassNav';
 
 jest.mock('next/navigation', () => ({
@@ -6,8 +6,8 @@ jest.mock('next/navigation', () => ({
 }));
 
 jest.mock('next/link', () => {
-  const MockLink = ({ children, href }: { children: React.ReactNode; href: string }) => (
-    <a href={href}>{children}</a>
+  const MockLink = ({ children, href, onClick }: { children: React.ReactNode; href: string; onClick?: () => void }) => (
+    <a href={href} onClick={onClick}>{children}</a>
   );
   MockLink.displayName = 'MockLink';
   return MockLink;
@@ -32,5 +32,17 @@ describe('GlassNav', () => {
     render(<GlassNav />);
     const homeLink = screen.getByText('회사 소개').closest('a');
     expect(homeLink).not.toBeNull();
+  });
+
+  it('햄버거 버튼이 렌더링된다', () => {
+    render(<GlassNav />);
+    expect(screen.getByLabelText('메뉴 열기')).toBeInTheDocument();
+  });
+
+  it('햄버거 버튼 클릭 시 모바일 메뉴가 표시된다', () => {
+    render(<GlassNav />);
+    fireEvent.click(screen.getByLabelText('메뉴 열기'));
+    const links = screen.getAllByText('회사 소개');
+    expect(links.length).toBeGreaterThan(0);
   });
 });

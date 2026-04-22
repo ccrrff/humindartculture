@@ -39,7 +39,6 @@ export default function VideoGrid({ videos }: VideoGridProps) {
                   alt={video.title}
                   fill
                   className="object-cover"
-                  unoptimized
                 />
                 <button
                   aria-label={`${video.title} 재생`}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import type { Video } from '@/data/videos';
 import { getYoutubeThumbnail } from '@/data/videos';
@@ -19,6 +19,15 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
 
   const leftIdx = (current - 1 + videos.length) % videos.length;
   const rightIdx = (current + 1) % videos.length;
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [videos.length]);
 
   return (
     <>
@@ -47,7 +56,6 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
                 alt={videos[leftIdx].title}
                 fill
                 className="object-cover"
-                unoptimized
               />
             </div>
           </div>
@@ -62,7 +70,6 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
                 alt={videos[current].title}
                 fill
                 className="object-cover"
-                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <button
@@ -92,7 +99,6 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
                 alt={videos[rightIdx].title}
                 fill
                 className="object-cover"
-                unoptimized
               />
             </div>
           </div>
