@@ -1,5 +1,13 @@
 // src/data/contact.ts
-export const contactInfo = {
+export interface ContactInfo {
+  phone: string;
+  email: string;
+  address: string;
+  hours: string;
+  mapSrc: string;
+}
+
+export const contactInfo: ContactInfo = {
   phone: '02-000-0000',
   email: 'artcompany@example.com',
   address: '서울특별시 종로구 문화예술로 1길',
