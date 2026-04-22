@@ -1,0 +1,157 @@
+- generic [active] [ref=e1]:
+  - heading "Layout Preview — 아트컴퍼니" [level=1] [ref=e2]
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - strong [ref=e6]: A. 히어로 + 사이드 리스트
+        - generic [ref=e7]: 메인 영상 크게 · 나머지 영상 오른쪽 목록 · 하단 소개+사업
+      - generic [ref=e8]:
+        - generic [ref=e9]:
+          - generic [ref=e11]:
+            - generic [ref=e12]:
+              - paragraph [ref=e13]: 2024 책읽는 한강공원
+              - text: 문화행사 · 2024.09
+            - text: ▶
+          - generic [ref=e14]:
+            - paragraph [ref=e15]: 다른 영상
+            - generic [ref=e16]:
+              - generic [ref=e17]: ▶
+              - generic [ref=e18]:
+                - paragraph [ref=e19]: 2024 서울 아트페어
+                - text: 전시기획 · 2024.10
+            - generic [ref=e20]:
+              - generic [ref=e21]: ▶
+              - generic [ref=e22]:
+                - paragraph [ref=e23]: 클래식 앙상블 공연
+                - text: 공연기획 · 2024.08
+            - generic [ref=e24]:
+              - generic [ref=e25]: ▶
+              - generic [ref=e26]:
+                - paragraph [ref=e27]: 청년 문화 포럼
+                - text: 문화행사 · 2024.07
+            - generic [ref=e28]:
+              - generic [ref=e29]: ▶
+              - generic [ref=e30]:
+                - paragraph [ref=e31]: 현대무용 갈라쇼
+                - text: 공연기획 · 2024.06
+            - generic [ref=e32]: 전체 보기 →
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: About
+            - heading "\"사소한 일상의 숨겨진 아름다움을 발견합니다\"" [level=3] [ref=e36]:
+              - text: "\"사소한 일상의 숨겨진"
+              - text: 아름다움을 발견합니다"
+            - paragraph [ref=e37]:
+              - text: 아트컴퍼니는 공연·전시·문화행사를 기획하는
+              - text: 문화예술 전문 기업입니다.
+            - generic [ref=e38]: 회사 소개 보기 →
+          - generic [ref=e39]:
+            - heading "사업 안내" [level=3] [ref=e40]
+            - generic [ref=e41]:
+              - generic [ref=e42]: 🎭
+              - generic [ref=e43]:
+                - paragraph [ref=e44]: 공연 기획
+                - text: 클래식·무용·연극 기획 및 제작
+            - generic [ref=e45]:
+              - generic [ref=e46]: 🎨
+              - generic [ref=e47]:
+                - paragraph [ref=e48]: 전시 기획
+                - text: 현대미술·사진·설치 전시 기획
+            - generic [ref=e49]:
+              - generic [ref=e50]: 🎪
+              - generic [ref=e51]:
+                - paragraph [ref=e52]: 문화 행사
+                - text: 축제·문화포럼·커뮤니티 행사
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - strong [ref=e55]: B. 풀 히어로 + 하단 정보
+        - generic [ref=e56]: 영상 하나 전체 너비 · 하단 소개+사업 · 영상 목록은 아카이브로 분리
+      - generic [ref=e57]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - paragraph [ref=e61]: 2024 책읽는 한강공원
+            - text: 문화행사 · 2024.09
+          - text: ▶
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: About
+            - heading "\"사소한 일상의 숨겨진 아름다움을 발견합니다\"" [level=3] [ref=e65]:
+              - text: "\"사소한 일상의 숨겨진"
+              - text: 아름다움을 발견합니다"
+            - paragraph [ref=e66]:
+              - text: 아트컴퍼니는 공연·전시·문화행사를 기획하는
+              - text: 문화예술 전문 기업입니다.
+            - generic [ref=e67]: 회사 소개 보기 →
+          - generic [ref=e68]:
+            - heading "사업 안내" [level=3] [ref=e69]
+            - generic [ref=e70]:
+              - generic [ref=e71]: 🎭
+              - generic [ref=e72]:
+                - paragraph [ref=e73]: 공연 기획
+                - text: 클래식·무용·연극 기획 및 제작
+            - generic [ref=e74]:
+              - generic [ref=e75]: 🎨
+              - generic [ref=e76]:
+                - paragraph [ref=e77]: 전시 기획
+                - text: 현대미술·사진·설치 전시 기획
+            - generic [ref=e78]:
+              - generic [ref=e79]: 🎪
+              - generic [ref=e80]:
+                - paragraph [ref=e81]: 문화 행사
+                - text: 축제·문화포럼·커뮤니티 행사
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - strong [ref=e84]: C. 2단 통합
+        - generic [ref=e85]: 왼쪽 — 메인 영상 + 작은 영상 그리드 / 오른쪽 — 소개+사업 세로 배치
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - paragraph [ref=e91]: 2024 책읽는 한강공원
+              - text: 문화행사 · 2024.09
+            - text: ▶
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - generic [ref=e94]: 다른 영상
+              - generic [ref=e95]: 전체 보기 →
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - generic [ref=e98]: ▶
+                - generic [ref=e99]: 2024 서울 아트페어
+              - generic [ref=e100]:
+                - generic [ref=e101]: ▶
+                - generic [ref=e102]: 클래식 앙상블
+              - generic [ref=e103]:
+                - generic [ref=e104]: ▶
+                - generic [ref=e105]: 청년 문화 포럼
+              - generic [ref=e106]:
+                - generic [ref=e107]: ▶
+                - generic [ref=e108]: 현대무용 갈라쇼
+              - generic [ref=e109]:
+                - generic [ref=e110]: ▶
+                - generic [ref=e111]: 사진전 오프닝
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: About
+            - heading "\"사소한 일상의 숨겨진 아름다움을 발견합니다\"" [level=3] [ref=e115]:
+              - text: "\"사소한 일상의 숨겨진"
+              - text: 아름다움을 발견합니다"
+            - paragraph [ref=e116]: 아트컴퍼니는 공연·전시·문화행사를 기획하는 문화예술 전문 기업입니다. 2010년 설립 이후 일상 속 문화의 가치를 전달하고 있습니다.
+            - generic [ref=e117]: 회사 소개 보기 →
+          - generic [ref=e118]:
+            - heading "사업 안내" [level=3] [ref=e119]
+            - generic [ref=e120]:
+              - generic [ref=e121]: 🎭
+              - generic [ref=e122]:
+                - paragraph [ref=e123]: 공연 기획
+                - text: 클래식·무용·연극 기획 및 제작
+            - generic [ref=e124]:
+              - generic [ref=e125]: 🎨
+              - generic [ref=e126]:
+                - paragraph [ref=e127]: 전시 기획
+                - text: 현대미술·사진·설치 전시 기획
+            - generic [ref=e128]:
+              - generic [ref=e129]: 🎪
+              - generic [ref=e130]:
+                - paragraph [ref=e131]: 문화 행사
+                - text: 축제·문화포럼·커뮤니티 행사

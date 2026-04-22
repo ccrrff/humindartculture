@@ -1,0 +1,118 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "아트컴퍼니" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "회사 소개" [ref=e5] [cursor=pointer]:
+        - /url: /about
+      - link "영상 아카이브" [ref=e6] [cursor=pointer]:
+        - /url: /archive
+      - link "사업 안내" [ref=e7] [cursor=pointer]:
+        - /url: /business
+      - link "수상·보도" [ref=e8] [cursor=pointer]:
+        - /url: /news
+      - link "문의" [ref=e9] [cursor=pointer]:
+        - /url: /contact
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - paragraph [ref=e12]: Featured Works
+      - generic [ref=e13]:
+        - button "이전 영상" [ref=e14]: ‹
+        - img "현대미술 전시 오프닝" [ref=e17] [cursor=pointer]
+        - generic [ref=e19] [cursor=pointer]:
+          - img "2024 책읽는 한강공원" [ref=e20]
+          - button "2024 책읽는 한강공원 재생" [ref=e22]:
+            - generic [ref=e23]: ▶
+          - generic:
+            - paragraph: 2024 책읽는 한강공원
+            - paragraph: 문화행사 · 2024.09
+        - img "2024 가을 문화축제" [ref=e26] [cursor=pointer]
+        - button "다음 영상" [ref=e27]: ›
+      - list "영상 목록" [ref=e28]:
+        - listitem [ref=e29] [cursor=pointer]
+        - listitem [ref=e30] [cursor=pointer]
+        - listitem [ref=e31] [cursor=pointer]
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]: 최근 영상
+        - link "전체 보기 →" [ref=e35] [cursor=pointer]:
+          - /url: /archive
+      - generic [ref=e36]:
+        - generic [ref=e37] [cursor=pointer]:
+          - generic [ref=e38]:
+            - img "2024 가을 문화축제" [ref=e39]
+            - button "2024 가을 문화축제 재생" [ref=e40]:
+              - generic [ref=e41]: ▶
+          - generic [ref=e42]:
+            - heading "2024 가을 문화축제" [level=4] [ref=e43]
+            - generic [ref=e44]: 공연기획 · 2024.10
+        - generic [ref=e45] [cursor=pointer]:
+          - generic [ref=e46]:
+            - img "2024 책읽는 한강공원" [ref=e47]
+            - button "2024 책읽는 한강공원 재생" [ref=e48]:
+              - generic [ref=e49]: ▶
+          - generic [ref=e50]:
+            - heading "2024 책읽는 한강공원" [level=4] [ref=e51]
+            - generic [ref=e52]: 문화행사 · 2024.09
+        - generic [ref=e53] [cursor=pointer]:
+          - generic [ref=e54]:
+            - img "현대미술 전시 오프닝" [ref=e55]
+            - button "현대미술 전시 오프닝 재생" [ref=e56]:
+              - generic [ref=e57]: ▶
+          - generic [ref=e58]:
+            - heading "현대미술 전시 오프닝" [level=4] [ref=e59]
+            - generic [ref=e60]: 전시기획 · 2024.08
+        - generic [ref=e61] [cursor=pointer]:
+          - generic [ref=e62]:
+            - img "지역 문화 교류 행사" [ref=e63]
+            - button "지역 문화 교류 행사 재생" [ref=e64]:
+              - generic [ref=e65]: ▶
+          - generic [ref=e66]:
+            - heading "지역 문화 교류 행사" [level=4] [ref=e67]
+            - generic [ref=e68]: 문화행사 · 2024.07
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]: About
+        - paragraph [ref=e72]:
+          - text: "\"사소한 일상의 숨겨진"
+          - text: 아름다움을 발견합니다"
+        - paragraph [ref=e73]: 아트컴퍼니는 공연·전시·문화행사를 기획하는 문화예술 전문 기업입니다. 2010년 설립 이후 다양한 예술 프로젝트를 통해 일상 속 문화의 가치를 전달하고 있습니다.
+        - link "회사 소개 보기 →" [ref=e74] [cursor=pointer]:
+          - /url: /about
+      - generic [ref=e75]:
+        - paragraph [ref=e76]: 사업 안내
+        - generic [ref=e77]:
+          - link "🎭 공연 기획 클래식·무용·연극 기획 및 제작 ›" [ref=e78] [cursor=pointer]:
+            - /url: /business
+            - generic [ref=e79]: 🎭
+            - generic [ref=e80]:
+              - paragraph [ref=e81]: 공연 기획
+              - paragraph [ref=e82]: 클래식·무용·연극 기획 및 제작
+            - generic [ref=e83]: ›
+          - link "🎨 전시 기획 현대미술·사진·설치 전시 기획 ›" [ref=e84] [cursor=pointer]:
+            - /url: /business
+            - generic [ref=e85]: 🎨
+            - generic [ref=e86]:
+              - paragraph [ref=e87]: 전시 기획
+              - paragraph [ref=e88]: 현대미술·사진·설치 전시 기획
+            - generic [ref=e89]: ›
+          - link "🎪 문화 행사 축제·문화포럼·커뮤니티 행사 ›" [ref=e90] [cursor=pointer]:
+            - /url: /business
+            - generic [ref=e91]: 🎪
+            - generic [ref=e92]:
+              - paragraph [ref=e93]: 문화 행사
+              - paragraph [ref=e94]: 축제·문화포럼·커뮤니티 행사
+            - generic [ref=e95]: ›
+    - contentinfo [ref=e96]:
+      - generic [ref=e97]:
+        - paragraph [ref=e98]: 아트컴퍼니
+        - paragraph [ref=e99]:
+          - text: "대표: 홍길동 | 사업자번호: 000-00-00000"
+          - text: 서울특별시 종로구 문화예술로 1길
+          - text: Tel. 02-000-0000 | artcompany@example.com
+      - generic [ref=e100]:
+        - generic [ref=e101] [cursor=pointer]: ▶
+        - generic [ref=e102] [cursor=pointer]: 📷
+        - generic [ref=e103] [cursor=pointer]: f
+  - button "Open Next.js Dev Tools" [ref=e109] [cursor=pointer]:
+    - img [ref=e110]

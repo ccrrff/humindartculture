@@ -11,9 +11,7 @@ export default function AboutPage() {
           대표 인사말
         </span>
         <div className="flex gap-6 items-start">
-          <div className="w-[96px] h-[96px] rounded-full bg-white/40 border border-white/60 shrink-0 flex items-center justify-center text-3xl">
-            👤
-          </div>
+          <div className="w-[96px] h-[96px] rounded-full bg-white/40 border border-white/60 shrink-0" />
           <div>
             <p className="text-[15px] text-[var(--text-main)] leading-relaxed mb-3">{greeting}</p>
             <p className="text-[13px] text-[var(--text-secondary)]">
@@ -54,9 +52,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {team.map((member) => (
             <div key={member.name} className="flex flex-col items-center gap-2">
-              <div className="w-[72px] h-[72px] rounded-xl bg-white/40 border border-white/60 flex items-center justify-center text-2xl">
-                👤
-              </div>
+              <div className="w-[72px] h-[72px] rounded-xl bg-white/40 border border-white/60" />
               <p className="text-[13px] font-semibold text-[var(--text-main)]">{member.name}</p>
               <p className="text-[11px] text-[var(--text-secondary)]">{member.role}</p>
             </div>

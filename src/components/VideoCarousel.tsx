@@ -47,7 +47,7 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
 
           <div
             className="hidden md:block rounded-2xl overflow-hidden shrink-0 opacity-55 scale-95 cursor-pointer transition-transform hover:scale-[0.97]"
-            style={{ width: 180, height: 108 }}
+            style={{ width: 280, height: 158 }}
             onClick={() => { setCurrent(leftIdx); }}
           >
             <div className="relative w-full h-full">
@@ -62,7 +62,7 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
 
           <div
             className="rounded-2xl overflow-hidden shrink-0 shadow-2xl cursor-pointer"
-            style={{ width: 320, height: 190 }}
+            style={{ width: 560, height: 315 }}
           >
             <div className="relative w-full h-full group">
               <Image
@@ -77,20 +77,20 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
                 onClick={() => setActiveId(videos[current].id)}
                 className="absolute inset-0 flex flex-col items-center justify-center gap-2"
               >
-                <span className="w-12 h-12 rounded-full bg-white/25 backdrop-blur border border-white/35 flex items-center justify-center text-white text-lg">
+                <span className="w-16 h-16 rounded-full bg-white/25 backdrop-blur border border-white/35 flex items-center justify-center text-white text-2xl">
                   ▶
                 </span>
               </button>
-              <div className="absolute bottom-3 left-4 right-4 pointer-events-none">
-                <p className="text-white text-[13px] font-semibold">{videos[current].title}</p>
-                <p className="text-white/70 text-[10px]">{videos[current].category} · {videos[current].date}</p>
+              <div className="absolute bottom-5 left-6 right-6 pointer-events-none">
+                <p className="text-white text-[16px] font-semibold">{videos[current].title}</p>
+                <p className="text-white/70 text-[12px] mt-0.5">{videos[current].category} · {videos[current].date}</p>
               </div>
             </div>
           </div>
 
           <div
             className="hidden md:block rounded-2xl overflow-hidden shrink-0 opacity-55 scale-95 cursor-pointer transition-transform hover:scale-[0.97]"
-            style={{ width: 180, height: 108 }}
+            style={{ width: 280, height: 158 }}
             onClick={() => { setCurrent(rightIdx); }}
           >
             <div className="relative w-full h-full">

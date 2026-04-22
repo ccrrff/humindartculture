@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko">
       <body className={inter.className} style={{ background: 'var(--body-bg)' }}>
         <GlassNav />
-        <div className="max-w-[900px] mx-auto px-4 pt-24 pb-10 flex flex-col gap-2.5 min-h-screen">
+        <div className="max-w-[1400px] mx-auto px-8 pt-24 pb-10 flex flex-col gap-4 min-h-screen">
           {children}
           <GlassFooter />
         </div>

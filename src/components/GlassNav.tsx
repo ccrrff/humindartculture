@@ -18,7 +18,7 @@ export default function GlassNav() {
 
   return (
     <>
-      <nav className="glass fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-32px)] max-w-[900px] h-14 flex items-center px-7 gap-8 rounded-[28px]">
+      <nav className="glass fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-64px)] max-w-[1400px] h-14 flex items-center px-7 gap-8 rounded-[28px]">
         <Link
           href="/"
           className="text-[15px] font-bold tracking-wide text-[var(--text-main)] mr-auto"
@@ -58,7 +58,7 @@ export default function GlassNav() {
 
       {/* 모바일 드롭다운 메뉴 */}
       {open && (
-        <div className="glass fixed top-20 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-32px)] max-w-[900px] rounded-[20px] p-4 flex flex-col gap-1 md:hidden">
+        <div className="glass fixed top-20 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-64px)] max-w-[1400px] rounded-[20px] p-4 flex flex-col gap-1 md:hidden">
           {NAV_ITEMS.map(({ label, href }) => (
             <Link
               key={href}

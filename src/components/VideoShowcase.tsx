@@ -1,0 +1,99 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import type { Video } from '@/data/videos';
+import { getYoutubeThumbnail } from '@/data/videos';
+import VideoModal from './VideoModal';
+
+interface VideoShowcaseProps {
+  videos: Video[];
+}
+
+export default function VideoShowcase({ videos }: VideoShowcaseProps) {
+  const [heroIdx, setHeroIdx] = useState(0);
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  const hero = videos[heroIdx];
+  const sideList = videos.filter((_, i) => i !== heroIdx);
+
+  return (
+    <>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {/* 히어로 영상 */}
+        <div className="lg:col-span-2 glass p-5 rounded-[28px]">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+            <Image
+              src={getYoutubeThumbnail(hero.id)}
+              alt={hero.title}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+            <button
+              aria-label={`${hero.title} 재생`}
+              onClick={() => setActiveId(hero.id)}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <span className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 flex items-center justify-center text-white text-2xl hover:bg-white/30 transition-colors">
+                ▶
+              </span>
+            </button>
+            <div className="absolute bottom-5 left-6 right-6 pointer-events-none">
+              <span className="inline-block text-[10px] tracking-widest uppercase text-white/70 mb-1.5">{hero.category}</span>
+              <p className="text-white text-[18px] font-semibold leading-snug">{hero.title}</p>
+              <p className="text-white/60 text-[12px] mt-1">{hero.date}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* 사이드 목록 */}
+        <div className="glass p-5 rounded-[28px] flex flex-col">
+          <div className="flex items-baseline justify-between mb-4">
+            <span className="text-[15px] font-semibold text-[var(--text-main)]">다른 영상</span>
+            <Link href="/archive" className="text-[12px] text-[var(--text-secondary)] hover:text-[var(--text-main)] transition-colors">
+              전체 보기 →
+            </Link>
+          </div>
+          <div className="flex flex-col gap-2.5 flex-1">
+            {sideList.map((video) => {
+              const originalIdx = videos.indexOf(video);
+              return (
+                <button
+                  key={video.id}
+                  onClick={() => setHeroIdx(originalIdx)}
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-white/40 border border-white/60 hover:bg-white/55 transition-colors text-left"
+                >
+                  <div className="relative w-[80px] h-[46px] rounded-lg overflow-hidden shrink-0">
+                    <Image
+                      src={getYoutubeThumbnail(video.id)}
+                      alt={video.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[12px] font-medium text-[var(--text-main)] line-clamp-2 leading-snug">{video.title}</p>
+                    <p className="text-[10px] text-[var(--text-secondary)] mt-0.5">{video.category} · {video.date}</p>
+                  </div>
+                  <span
+                    role="button"
+                    aria-label={`${video.title} 재생`}
+                    onClick={(e) => { e.stopPropagation(); setActiveId(video.id); }}
+                    className="w-7 h-7 rounded-full bg-white/30 border border-white/50 flex items-center justify-center text-[var(--text-secondary)] text-[10px] shrink-0 hover:bg-white/50 transition-colors"
+                  >
+                    ▶
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <VideoModal videoId={activeId} onClose={() => setActiveId(null)} />
+    </>
+  );
+}

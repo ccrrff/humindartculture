@@ -11,10 +11,7 @@ export default function BusinessPage() {
           key={item.id}
           className="p-6 rounded-[20px] bg-white/45 border border-white/65 flex flex-col gap-3"
         >
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">{item.icon}</span>
-            <h2 className="text-[17px] font-semibold text-[var(--text-main)]">{item.title}</h2>
-          </div>
+          <h2 className="text-[17px] font-semibold text-[var(--text-main)]">{item.title}</h2>
           <p className="text-[14px] text-[var(--text-secondary)] leading-relaxed">{item.description}</p>
           <div className="flex gap-2 flex-wrap">
             {item.keywords.map((kw) => (

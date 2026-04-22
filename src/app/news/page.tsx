@@ -6,7 +6,7 @@ export default function NewsPage() {
       {/* 수상 내역 */}
       <section>
         <p className="text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-4">
-          <span aria-hidden="true">🏆 </span>수상 내역
+          수상 내역
         </p>
         <div className="flex flex-col gap-3">
           {awards.map((award) => (
@@ -14,7 +14,7 @@ export default function NewsPage() {
               key={award.title}
               className="flex items-center gap-4 p-4 rounded-[16px] bg-white/45 border border-white/65"
             >
-              <span className="text-xl shrink-0">🏆</span>
+              <div className="w-8 h-8 rounded-lg bg-white/40 border border-white/60 shrink-0" />
               <div>
                 <p className="text-[14px] font-semibold text-[var(--text-main)]">{award.title}</p>
                 <p className="text-[12px] text-[var(--text-secondary)]">
@@ -29,7 +29,7 @@ export default function NewsPage() {
       {/* 언론 보도 */}
       <section>
         <p className="text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-4">
-          <span aria-hidden="true">📰 </span>언론 보도
+          언론 보도
         </p>
         <div className="flex flex-col gap-2">
           {pressItems.map((item) => (
