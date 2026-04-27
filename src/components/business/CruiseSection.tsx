@@ -1,9 +1,28 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 const STEPS = [
   { num: '01', title: '항로 기획', desc: '유럽·아시아 문화 항로 선정', active: true },
   { num: '02', title: '선상 공연', desc: '오케스트라와 함께하는 항해', active: true },
   { num: '03', title: '현지 교류', desc: '기항지 공연 및 문화 프로그램', active: true },
   { num: '04', title: '예술 패키지', desc: '기획 중', active: false },
 ];
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.18, delayChildren: 0.1 } },
+};
+
+const stepVariant = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } },
+};
+
+const lineVariant = {
+  hidden: { scaleX: 0 },
+  visible: { scaleX: 1, transition: { duration: 0.7, ease: 'easeInOut' } },
+};
 
 export default function CruiseSection() {
   return (
@@ -18,16 +37,24 @@ export default function CruiseSection() {
       </p>
 
       {/* 여정 스텝 */}
-      <div className="relative flex items-start pt-1">
-        {/* 연결선 */}
-        <div
+      <motion.div
+        className="relative flex items-start pt-1"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        {/* 연결선 — 왼쪽에서 오른쪽으로 드로잉 */}
+        <motion.div
           aria-hidden="true"
-          className="absolute top-4 left-4 right-4 h-px bg-black/10"
+          className="absolute top-4 left-4 right-4 h-px bg-black/15 origin-left"
+          variants={lineVariant}
         />
         {STEPS.map((step) => (
-          <div
+          <motion.div
             key={step.num}
             className="flex-1 flex flex-col items-center gap-2 relative z-10"
+            variants={stepVariant}
           >
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold ${
@@ -48,9 +75,9 @@ export default function CruiseSection() {
             <span className="text-[11px] text-[var(--text-secondary)] text-center leading-snug">
               {step.desc}
             </span>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

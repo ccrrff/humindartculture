@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 const GRID = [
   {
     label: 'OUTDOOR',
@@ -25,6 +29,16 @@ const GRID = [
   },
 ];
 
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.05 } },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
+
 export default function InstallationSection() {
   return (
     <section aria-labelledby="installation-heading" className="glass p-8 rounded-[28px] flex flex-col gap-5">
@@ -38,15 +52,22 @@ export default function InstallationSection() {
       </p>
 
       {/* 2열 그리드 */}
-      <div className="grid grid-cols-2 gap-4">
+      <motion.div
+        className="grid grid-cols-2 gap-4"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+      >
         {GRID.map((item) => (
-          <div
+          <motion.div
             key={item.label}
             className={`p-5 rounded-2xl flex flex-col gap-1.5 ${
               item.active
                 ? 'bg-[var(--text-main)]/5 border-l-[3px] border-[var(--text-main)]'
                 : 'bg-white/30 border-l-[3px] border-dashed border-[var(--text-secondary)]/30'
             }`}
+            variants={cardVariant}
           >
             <span
               className={`text-[10px] tracking-[2px] font-medium ${
@@ -69,9 +90,9 @@ export default function InstallationSection() {
             >
               {item.desc}
             </span>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
