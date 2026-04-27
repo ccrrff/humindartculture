@@ -1,7 +1,7 @@
 import { aboutData } from '@/data/about';
 
 export default function AboutPage() {
-  const { ceoName, ceoRole, greeting, vision, mission, history, team } = aboutData;
+  const { ceoName, ceoRole, greeting, vision, mission, history } = aboutData;
 
   return (
     <div className="glass p-8 rounded-[28px] flex flex-col gap-8">
@@ -39,18 +39,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 팀 소개 */}
-      <section>
-        <p className="text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-4">팀 소개</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {team.map((member) => (
-            <div key={member.name} className="p-4 rounded-xl bg-white/45 border border-white/65 text-center">
-              <p className="text-[13px] font-semibold text-[var(--text-main)]">{member.name}</p>
-              <p className="text-[11px] text-[var(--text-secondary)] mt-1">{member.role}</p>
-            </div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }
