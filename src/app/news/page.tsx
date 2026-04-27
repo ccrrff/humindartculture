@@ -12,7 +12,7 @@ export default function NewsPage() {
           {awards.map((award) => (
             <div
               key={award.title}
-              className="p-4 rounded-[16px] bg-white/45 border border-white/65"
+              className="p-4 rounded-[16px] bg-white/45 border border-white/65 transition-all duration-[220ms] hover:bg-[rgba(255,247,220,0.6)] hover:border-l-[#c9a84c] hover:[border-left-width:3px] hover:shadow-[0_4px_16px_rgba(201,168,76,0.12)]"
             >
               <p className="text-[14px] font-semibold text-[var(--text-main)]">{award.title}</p>
               <p className="text-[12px] text-[var(--text-secondary)] mt-0.5">
@@ -32,7 +32,7 @@ export default function NewsPage() {
           {pressItems.map((item) => (
             <div
               key={item.title}
-              className="flex items-center justify-between p-4 rounded-[14px] bg-white/35 border border-white/55"
+              className="group flex items-center justify-between p-4 rounded-[14px] bg-white/35 border border-white/55 transition-all duration-[220ms] hover:bg-white/55 hover:-translate-y-0.5 hover:shadow-[0_4px_14px_rgba(0,0,0,0.07)]"
             >
               <div>
                 <p className="text-[13px] font-medium text-[var(--text-main)]">{item.title}</p>
@@ -46,7 +46,7 @@ export default function NewsPage() {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[var(--text-secondary)] text-sm ml-4 shrink-0 hover:text-[var(--text-main)] transition-colors"
+                  className="text-[var(--text-secondary)] text-sm ml-4 shrink-0 transition-all duration-[220ms] group-hover:translate-x-1 group-hover:text-[var(--text-main)]"
                 >
                   →
                 </a>
