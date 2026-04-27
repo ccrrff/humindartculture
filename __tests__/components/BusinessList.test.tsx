@@ -10,11 +10,12 @@ jest.mock('next/link', () => {
 });
 
 describe('BusinessList', () => {
-  it('3개의 사업 항목을 렌더링한다', () => {
+  it('4개의 사업 항목을 렌더링한다', () => {
     render(<BusinessList />);
-    expect(screen.getByText('공연 기획')).toBeInTheDocument();
-    expect(screen.getByText('전시 기획')).toBeInTheDocument();
-    expect(screen.getByText('문화 행사')).toBeInTheDocument();
+    expect(screen.getByText('오케스트라 운영')).toBeInTheDocument();
+    expect(screen.getByText('국제문화교류')).toBeInTheDocument();
+    expect(screen.getByText('크루즈 문화사업')).toBeInTheDocument();
+    expect(screen.getByText('설치예술')).toBeInTheDocument();
   });
 
   it('각 항목이 /business 링크를 가진다', () => {

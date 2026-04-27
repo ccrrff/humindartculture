@@ -16,7 +16,7 @@ jest.mock('next/link', () => {
 describe('GlassNav', () => {
   it('로고를 렌더링한다', () => {
     render(<GlassNav />);
-    expect(screen.getByText('아트컴퍼니')).toBeInTheDocument();
+    expect(screen.getByText('휴마인드 아트컬쳐')).toBeInTheDocument();
   });
 
   it('5개 메뉴 항목을 렌더링한다', () => {

@@ -16,9 +16,9 @@ jest.mock('next/image', () => {
 });
 
 const MOCK_VIDEOS: Video[] = [
-  { id: 'aaa', title: '영상 A', category: '공연기획', date: '2024.01', featured: true },
-  { id: 'bbb', title: '영상 B', category: '전시기획', date: '2024.02', featured: true },
-  { id: 'ccc', title: '영상 C', category: '문화행사', date: '2024.03', featured: true },
+  { id: 'aaa', title: '영상 A', category: '오케스트라', date: '2024.01', featured: true },
+  { id: 'bbb', title: '영상 B', category: '국제교류', date: '2024.02', featured: true },
+  { id: 'ccc', title: '영상 C', category: '크루즈', date: '2024.03', featured: true },
 ];
 
 describe('VideoCarousel', () => {

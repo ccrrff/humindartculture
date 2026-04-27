@@ -6,7 +6,7 @@ describe('videos 데이터', () => {
     videos.forEach((v: Video) => {
       expect(typeof v.id).toBe('string');
       expect(typeof v.title).toBe('string');
-      expect(['공연기획', '전시기획', '문화행사']).toContain(v.category);
+      expect(['오케스트라', '국제교류', '크루즈', '설치예술']).toContain(v.category);
       expect(typeof v.date).toBe('string');
     });
   });

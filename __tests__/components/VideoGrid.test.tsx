@@ -27,10 +27,10 @@ jest.mock('next/link', () => {
 });
 
 const MOCK_VIDEOS: Video[] = [
-  { id: 'v1', title: '영상 1', category: '공연기획', date: '2024.10' },
-  { id: 'v2', title: '영상 2', category: '전시기획', date: '2024.09' },
-  { id: 'v3', title: '영상 3', category: '문화행사', date: '2024.08' },
-  { id: 'v4', title: '영상 4', category: '공연기획', date: '2024.07' },
+  { id: 'v1', title: '영상 1', category: '오케스트라', date: '2024.10' },
+  { id: 'v2', title: '영상 2', category: '국제교류', date: '2024.09' },
+  { id: 'v3', title: '영상 3', category: '크루즈', date: '2024.08' },
+  { id: 'v4', title: '영상 4', category: '설치예술', date: '2024.07' },
 ];
 
 describe('VideoGrid', () => {
