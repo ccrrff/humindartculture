@@ -7,11 +7,11 @@ const STEPS = [
 
 export default function CruiseSection() {
   return (
-    <section className="glass p-8 rounded-[28px] flex flex-col gap-5">
+    <section aria-labelledby="cruise-heading" className="glass p-8 rounded-[28px] flex flex-col gap-5">
       <span className="text-[10px] tracking-[3px] text-[var(--text-secondary)] uppercase">
         03 · Cultural Cruise
       </span>
-      <h2 className="text-[20px] font-bold text-[var(--text-main)]">크루즈 문화사업</h2>
+      <h2 id="cruise-heading" className="text-[20px] font-bold text-[var(--text-main)]">크루즈 문화사업</h2>
       <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed">
         국제문화교류 사업의 일환으로 크루즈를 활용한 문화 프로그램을 운영합니다. 선상 클래식 공연과
         예술 여행 패키지를 통해 새로운 형태의 문화 경험을 제공합니다.

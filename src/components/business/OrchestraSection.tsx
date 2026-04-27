@@ -13,6 +13,7 @@ interface Props {
 export default function OrchestraSection({ videos }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
+  // 첫 번째 featured 영상을 히어로로 사용 (videos.ts 순서상 유퀴즈 영상이 항상 첫 번째)
   const hero = videos.find((v) => v.featured) ?? videos[0];
   const thumbs = videos.filter((v) => v.id !== hero?.id);
 
@@ -20,14 +21,14 @@ export default function OrchestraSection({ videos }: Props) {
 
   return (
     <>
-      <section className="glass p-8 rounded-[28px] flex flex-col gap-5">
+      <section aria-labelledby="orchestra-heading" className="glass p-8 rounded-[28px] flex flex-col gap-5">
         <span className="text-[10px] tracking-[3px] text-[var(--text-secondary)] uppercase">
           01 · Orchestra
         </span>
         <div className="flex gap-8 items-start">
           {/* 좌측 텍스트 */}
           <div className="flex-[1.2] flex flex-col gap-4">
-            <h2 className="text-[20px] font-bold text-[var(--text-main)]">오케스트라 운영</h2>
+            <h2 id="orchestra-heading" className="text-[20px] font-bold text-[var(--text-main)]">오케스트라 운영</h2>
             <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed">
               서울 페스타 필하모닉 오케스트라를 운영합니다. 정기연주회, 기획 공연, 해외 초청 공연까지
               수준 높은 클래식을 선보입니다.

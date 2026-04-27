@@ -20,14 +20,14 @@ export default function InternationalSection({ videos }: Props) {
 
   return (
     <>
-      <section className="glass p-8 rounded-[28px] flex flex-col gap-5">
+      <section aria-labelledby="international-heading" className="glass p-8 rounded-[28px] flex flex-col gap-5">
         <span className="text-[10px] tracking-[3px] text-[var(--text-secondary)] uppercase">
           02 · International Exchange
         </span>
         <div className="flex gap-8 items-start">
           {/* 좌측 텍스트 */}
           <div className="flex-[1.2] flex flex-col gap-4">
-            <h2 className="text-[20px] font-bold text-[var(--text-main)]">국제문화교류</h2>
+            <h2 id="international-heading" className="text-[20px] font-bold text-[var(--text-main)]">국제문화교류</h2>
             <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed">
               민간 국제문화교류 사업을 수행합니다. 프랑스 한불수교 기념 공연, 네덜란드 이준열사 기념
               행사, 독일 BMVA 세계영상어워즈 수상 등 유럽 무대에서 한국 예술을 알립니다.

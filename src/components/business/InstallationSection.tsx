@@ -27,11 +27,11 @@ const GRID = [
 
 export default function InstallationSection() {
   return (
-    <section className="glass p-8 rounded-[28px] flex flex-col gap-5">
+    <section aria-labelledby="installation-heading" className="glass p-8 rounded-[28px] flex flex-col gap-5">
       <span className="text-[10px] tracking-[3px] text-[var(--text-secondary)] uppercase">
         04 · Installation Art
       </span>
-      <h2 className="text-[20px] font-bold text-[var(--text-main)]">설치예술</h2>
+      <h2 id="installation-heading" className="text-[20px] font-bold text-[var(--text-main)]">설치예술</h2>
       <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed">
         도시 공공장소와 실내 공간에 설치예술 작품을 기획·제작합니다. 일상 속에서 예술을 만나는
         경험을 통해 문화예술의 저변을 넓힙니다.
@@ -49,7 +49,7 @@ export default function InstallationSection() {
             }`}
           >
             <span
-              className={`text-[9px] tracking-[2px] font-medium ${
+              className={`text-[10px] tracking-[2px] font-medium ${
                 item.active ? 'text-[var(--text-secondary)]' : 'text-[var(--text-secondary)]/50'
               }`}
             >
