@@ -14,9 +14,16 @@ const container = {
   visible: { transition: { staggerChildren: 0.18, delayChildren: 0.1 } },
 };
 
-const stepVariant = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } },
+const flipVariant = {
+  hidden: { opacity: 0, rotateY: 90 },
+  visible: {
+    opacity: 1,
+    rotateY: [90, -8, 0],
+    transition: {
+      opacity: { duration: 0.3 },
+      rotateY: { duration: 0.6, times: [0, 0.78, 1], ease: 'easeOut' },
+    },
+  },
 };
 
 const lineVariant = {
@@ -43,6 +50,7 @@ export default function CruiseSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
+        style={{ perspective: '600px' }}
       >
         {/* 연결선 — 왼쪽에서 오른쪽으로 드로잉 */}
         <motion.div
@@ -54,7 +62,8 @@ export default function CruiseSection() {
           <motion.div
             key={step.num}
             className="flex-1 flex flex-col items-center gap-2 relative z-10"
-            variants={stepVariant}
+            variants={flipVariant}
+            style={{ backfaceVisibility: 'hidden' }}
           >
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold ${

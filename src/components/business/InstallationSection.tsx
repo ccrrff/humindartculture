@@ -34,9 +34,16 @@ const container = {
   visible: { transition: { staggerChildren: 0.15, delayChildren: 0.05 } },
 };
 
-const cardVariant = {
-  hidden: { opacity: 0, y: 14 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+const flipVariant = {
+  hidden: { opacity: 0, rotateY: 90 },
+  visible: {
+    opacity: 1,
+    rotateY: [90, -8, 0],
+    transition: {
+      opacity: { duration: 0.3 },
+      rotateY: { duration: 0.6, times: [0, 0.78, 1], ease: 'easeOut' },
+    },
+  },
 };
 
 export default function InstallationSection() {
@@ -58,6 +65,7 @@ export default function InstallationSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
+        style={{ perspective: '600px' }}
       >
         {GRID.map((item) => (
           <motion.div
@@ -67,7 +75,8 @@ export default function InstallationSection() {
                 ? 'bg-[var(--text-main)]/5 border-l-[3px] border-[var(--text-main)]'
                 : 'bg-white/30 border-l-[3px] border-dashed border-[var(--text-secondary)]/30'
             }`}
-            variants={cardVariant}
+            variants={flipVariant}
+            style={{ backfaceVisibility: 'hidden' }}
           >
             <span
               className={`text-[10px] tracking-[2px] font-medium ${
