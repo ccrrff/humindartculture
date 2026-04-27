@@ -70,7 +70,7 @@ export default function InstallationSection() {
         {GRID.map((item) => (
           <motion.div
             key={item.label}
-            className={`p-5 rounded-2xl flex flex-col gap-1.5 ${
+            className={`group relative overflow-hidden p-5 rounded-2xl ${
               item.active
                 ? 'bg-[var(--text-main)]/5 border-l-[3px] border-[var(--text-main)]'
                 : 'bg-white/30 border-l-[3px] border-dashed border-[var(--text-secondary)]/30'
@@ -79,26 +79,34 @@ export default function InstallationSection() {
             style={{ backfaceVisibility: 'hidden' }}
           >
             <span
-              className={`text-[10px] tracking-[2px] font-medium ${
-                item.active ? 'text-[var(--text-secondary)]' : 'text-[var(--text-secondary)]/50'
+              aria-hidden="true"
+              className={`absolute inset-0 rounded-[14px] scale-x-0 origin-left transition-transform duration-[350ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-x-100 ${
+                item.active ? 'bg-[var(--text-main)]/[0.06]' : 'bg-white/40'
               }`}
-            >
-              {item.label}
-            </span>
-            <span
-              className={`text-[13px] font-semibold ${
-                item.active ? 'text-[var(--text-main)]' : 'text-[var(--text-secondary)]/60'
-              }`}
-            >
-              {item.title}
-            </span>
-            <span
-              className={`text-[11px] leading-snug ${
-                item.active ? 'text-[var(--text-secondary)]' : 'text-[var(--text-secondary)]/50'
-              }`}
-            >
-              {item.desc}
-            </span>
+            />
+            <div className="relative flex flex-col gap-1.5">
+              <span
+                className={`text-[10px] tracking-[2px] font-medium ${
+                  item.active ? 'text-[var(--text-secondary)]' : 'text-[var(--text-secondary)]/50'
+                }`}
+              >
+                {item.label}
+              </span>
+              <span
+                className={`text-[13px] font-semibold ${
+                  item.active ? 'text-[var(--text-main)]' : 'text-[var(--text-secondary)]/60'
+                }`}
+              >
+                {item.title}
+              </span>
+              <span
+                className={`text-[11px] leading-snug ${
+                  item.active ? 'text-[var(--text-secondary)]' : 'text-[var(--text-secondary)]/50'
+                }`}
+              >
+                {item.desc}
+              </span>
+            </div>
           </motion.div>
         ))}
       </motion.div>
