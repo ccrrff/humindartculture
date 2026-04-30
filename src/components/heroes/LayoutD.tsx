@@ -105,7 +105,7 @@ function useTypewriter(words: string[], speed=80, del=48, pause=1600) {
 export default function LayoutD() {
   const [cp, setCp] = useState<CP>('entering');
   const [impact, setImpact] = useState(false);
-  const { text: kw, isDeleting } = useTypewriter(['오케스트라로','국제교류로','크루즈로','설치예술로']);
+  const { text: kw, isDeleting } = useTypewriter(['오케스트라로','국제교류로','크루즈로','예술로']);
 
   useEffect(() => {
     if (cp !== 'entering') return;

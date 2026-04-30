@@ -5,6 +5,19 @@ import Image from 'next/image';
 import type { Video } from '@/data/videos';
 import { getYoutubeThumbnail } from '@/data/videos';
 import VideoModal from '@/components/VideoModal';
+import TicketStrip from './TicketStrip';
+
+const TICKETS = [
+  { year: '2024', month: '11', title: 'BMVA 세계영상어워즈', venue: 'Berlin, Germany' },
+  { year: '2023', month: '06', title: '이준열사 추모 기념행사', venue: 'The Hague, Netherlands' },
+  { year: '2023', month: '04', title: '한불수교 140주년 공연', venue: 'Paris, France' },
+];
+
+const MILESTONES = [
+  { year: '2020', label: '한불수교 140주년 기념 공연' },
+  { year: '2023', label: '헤이그 이준열사 추모 행사' },
+  { year: '2024', label: 'BMVA 세계영상어워즈 수상' },
+];
 
 interface Props {
   videos: Video[];
@@ -24,23 +37,42 @@ export default function InternationalSection({ videos }: Props) {
         <span className="text-[10px] tracking-[3px] text-[var(--text-secondary)] uppercase">
           02 · International Exchange
         </span>
-        <div className="flex gap-8 items-start">
+        <div className="flex gap-8 items-stretch">
           {/* 좌측 텍스트 */}
-          <div className="flex-[1.2] flex flex-col gap-4">
-            <h2 id="international-heading" className="text-[20px] font-bold text-[var(--text-main)]">국제문화교류</h2>
-            <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed">
-              민간 국제문화교류 사업을 수행합니다. 프랑스 한불수교 기념 공연, 네덜란드 이준열사 기념
-              행사, 독일 BMVA 세계영상어워즈 수상 등 유럽 무대에서 한국 예술을 알립니다.
-            </p>
-            <div className="flex gap-2 flex-wrap">
-              {['민간 국제교류', '한불수교 기념', '이준열사 헤이그', 'BMVA 수상'].map((kw) => (
-                <span
-                  key={kw}
-                  className="text-[11px] bg-white/50 border border-white/70 rounded-full px-3 py-0.5 text-[var(--text-secondary)]"
-                >
-                  {kw}
-                </span>
-              ))}
+          <div className="flex-[1.2] flex flex-col justify-between">
+            <div className="flex flex-col gap-4">
+              <h2 id="international-heading" className="text-[20px] font-bold text-[var(--text-main)]">국제문화교류</h2>
+              <p className="text-[13px] text-[var(--text-secondary)] leading-relaxed">
+                민간 국제문화교류 사업을 수행합니다. 프랑스 한불수교 기념 공연, 네덜란드 이준열사 기념
+                행사, 독일 BMVA 세계영상어워즈 수상 등 유럽 무대에서 한국 예술을 알립니다.
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                {['민간 국제교류', '한불수교 기념', '이준열사 헤이그', 'BMVA 수상'].map((kw) => (
+                  <span
+                    key={kw}
+                    className="text-[11px] bg-white/50 border border-white/70 rounded-full px-3 py-0.5 text-[var(--text-secondary)]"
+                  >
+                    {kw}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex gap-4 items-stretch">
+              <TicketStrip tickets={TICKETS} />
+              <div className="flex-1 relative">
+                <div className="absolute left-[4px] top-[18px] bottom-[18px] w-px bg-[var(--text-secondary)]/30" />
+                <div className="flex flex-col justify-between h-full">
+                  {MILESTONES.map((m) => (
+                    <div key={m.year} className="flex items-start gap-2.5">
+                      <span className="w-2.5 h-2.5 rounded-full border-2 border-[var(--text-main)] bg-white mt-0.5 shrink-0 relative z-10" />
+                      <div>
+                        <p className="text-[12px] font-extrabold text-[var(--text-main)] leading-none">{m.year}</p>
+                        <p className="text-[11px] text-[var(--text-secondary)] leading-snug mt-0.5">{m.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -66,7 +98,7 @@ export default function InternationalSection({ videos }: Props) {
 
             {thumbs.length > 0 && (
               <div className="flex gap-2">
-                {thumbs.map((v) => (
+                {thumbs.slice(0, 4).map((v) => (
                   <button
                     key={v.id}
                     aria-label={`${v.title} 재생`}
