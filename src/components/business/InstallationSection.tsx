@@ -41,7 +41,7 @@ const flipVariant = {
     rotateY: [90, -8, 0],
     transition: {
       opacity: { duration: 0.3 },
-      rotateY: { duration: 0.6, times: [0, 0.78, 1], ease: 'easeOut' },
+      rotateY: { duration: 0.6, times: [0, 0.78, 1], ease: 'easeOut' as const },
     },
   },
 };
