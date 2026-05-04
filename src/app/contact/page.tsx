@@ -1,7 +1,7 @@
 import { contactInfo } from '@/data/contact';
 
 export default function ContactPage() {
-  const { phone, email, address, hours, mapSrc } = contactInfo;
+  const { phone, email, address, instagram, hours, mapSrc } = contactInfo;
 
   return (
     <div className="glass p-8 rounded-[28px]">
@@ -11,15 +11,25 @@ export default function ContactPage() {
         <div className="flex flex-col gap-5">
           <div>
             <p className="text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-1">전화</p>
-            <p className="text-[15px] text-[var(--text-main)]">{phone}</p>
+            <a href={`tel:${phone}`} className="text-[15px] text-[var(--text-main)] hover:underline">
+              {phone}
+            </a>
           </div>
           <div>
             <p className="text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-1">이메일</p>
+            <a href={`mailto:${email}`} className="text-[15px] text-[var(--text-main)] hover:underline">
+              {email}
+            </a>
+          </div>
+          <div>
+            <p className="text-[11px] tracking-widest uppercase text-[var(--text-secondary)] mb-1">인스타그램</p>
             <a
-              href={`mailto:${email}`}
+              href={`https://www.instagram.com/${instagram}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[15px] text-[var(--text-main)] hover:underline"
             >
-              {email}
+              @{instagram}
             </a>
           </div>
           <div>
