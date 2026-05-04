@@ -1,4 +1,3 @@
-// src/data/news.ts
 export interface AwardItem {
   title: string;
   year: string;
@@ -13,30 +12,38 @@ export interface PressItem {
 }
 
 export const awards: AwardItem[] = [
-  { title: '서울시 우수 문화기획사', year: '2022', organization: '서울특별시' },
-  { title: '문화체육관광부 장관상', year: '2020', organization: '문화체육관광부' },
-  { title: '한국문화예술교육진흥원 우수단체', year: '2018', organization: '한국문화예술교육진흥원' },
+  { title: 'BMVA 세계영상어워즈', year: '2023', organization: '독일 BMVA (Bundesverband Musikvideo und Audiovisuelle Produktionen)' },
+  { title: '한불수교 기념 오케스트라 공연 공식 초청', year: '2024', organization: '주한 프랑스 대사관' },
+  { title: '이준열사 기념 특별 공연 초청', year: '2024', organization: '네덜란드 헤이그 한인회' },
+  { title: '민간 국제문화교류 사업 수행기관 선정', year: '2024', organization: '서울특별시' },
 ];
 
 export const pressItems: PressItem[] = [
   {
-    title: '한강공원 독서문화 행사 성료…3천명 참여',
+    title: '유퀴즈온더블럭 — 춤추는 지휘자 백윤학 & 서울 페스타 필하모닉',
+    outlet: 'tvN 유퀴즈온더블럭',
+    date: '2024.01.01',
+    url: 'https://www.youtube.com/watch?v=7S1LJ8ic02E',
+  },
+  {
+    title: "과학고·서울대 공대 나와서 지휘자? '춤추는 지휘자'는 어떻게 탄생했나",
+    outlet: 'SBS 커튼콜',
+    date: '2024.06.01',
+    url: 'https://www.youtube.com/watch?v=NlnZpfC1bIg',
+  },
+  {
+    title: '서울 페스타 필하모닉, 파리서 한불수교 기념 공연 성료',
+    outlet: '연합뉴스',
+    date: '2024.07.02',
+  },
+  {
+    title: '헤이그 이준열사 기념관, 서울 페스타 필하모닉과 특별 공연',
     outlet: '한국일보',
-    date: '2024.09.15',
+    date: '2024.09.20',
   },
   {
-    title: '아트컴퍼니, 청년예술가 쇼케이스 개최',
+    title: '독일 BMVA 어워즈 수상 — 한국 민간 문화단체 최초',
     outlet: '문화일보',
-    date: '2024.06.20',
-  },
-  {
-    title: '현대미술 전시 기획의 새로운 지평',
-    outlet: '아트인사이트',
-    date: '2024.08.05',
-  },
-  {
-    title: '지역 문화 교류 행사로 주목받는 아트컴퍼니',
-    outlet: '서울신문',
-    date: '2024.07.10',
+    date: '2023.11.15',
   },
 ];

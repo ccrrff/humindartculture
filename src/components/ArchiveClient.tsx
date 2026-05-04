@@ -6,8 +6,8 @@ import type { Video } from '@/data/videos';
 import { getYoutubeThumbnail } from '@/data/videos';
 import VideoModal from './VideoModal';
 
-type Category = '전체' | '공연기획' | '전시기획' | '문화행사';
-const TABS: Category[] = ['전체', '공연기획', '전시기획', '문화행사'];
+type Category = '전체' | '오케스트라' | '국제교류' | '크루즈' | '설치예술';
+const TABS: Category[] = ['전체', '오케스트라', '국제교류', '크루즈', '설치예술'];
 
 interface ArchiveClientProps {
   videos: Video[];
@@ -22,7 +22,7 @@ export default function ArchiveClient({ videos }: ArchiveClientProps) {
   return (
     <>
       <div className="glass p-7 rounded-[28px]">
-        <div className="flex gap-1 mb-6 bg-white/30 rounded-[99px] p-1 w-fit">
+        <div className="flex gap-1 mb-6 bg-white/30 rounded-[99px] p-1 w-fit flex-wrap">
           {TABS.map((tab) => (
             <button
               key={tab}

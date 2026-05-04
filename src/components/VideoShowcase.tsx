@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Video } from '@/data/videos';
@@ -11,12 +11,29 @@ interface VideoShowcaseProps {
   videos: Video[];
 }
 
+const SIDE_COUNT = 5;
+const AUTO_INTERVAL = 3200;
+
 export default function VideoShowcase({ videos }: VideoShowcaseProps) {
   const [heroIdx, setHeroIdx] = useState(0);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [offset, setOffset] = useState(0); // 사이드 리스트 시작 인덱스
 
   const hero = videos[heroIdx];
-  const sideList = videos.filter((_, i) => i !== heroIdx);
+
+  // heroIdx를 제외한 나머지
+  const sidePool = videos.filter((_, i) => i !== heroIdx);
+
+  // offset 기준 5개 순환 슬라이스
+  const sideList = Array.from({ length: SIDE_COUNT }, (_, i) => sidePool[(offset + i) % sidePool.length]);
+
+  // 자동 한 칸씩 밀기
+  useEffect(() => {
+    const id = setInterval(() => {
+      setOffset((prev) => (prev + 1) % sidePool.length);
+    }, AUTO_INTERVAL);
+    return () => clearInterval(id);
+  }, [sidePool.length]);
 
   return (
     <>
@@ -49,7 +66,7 @@ export default function VideoShowcase({ videos }: VideoShowcaseProps) {
           </div>
         </div>
 
-        {/* 사이드 목록 */}
+        {/* 사이드 목록 — 5개 고정, 자동 슬라이드 */}
         <div className="glass p-5 rounded-[28px] flex flex-col">
           <div className="flex items-baseline justify-between mb-4">
             <span className="text-[15px] font-semibold text-[var(--text-main)]">다른 영상</span>
@@ -57,14 +74,17 @@ export default function VideoShowcase({ videos }: VideoShowcaseProps) {
               전체 보기 →
             </Link>
           </div>
-          <div className="flex flex-col gap-2.5 flex-1">
-            {sideList.map((video) => {
+
+          <div className="flex flex-col gap-2.5 flex-1 overflow-hidden">
+            {sideList.map((video, i) => {
               const originalIdx = videos.indexOf(video);
               return (
-                <button
-                  key={video.id}
-                  onClick={() => setHeroIdx(originalIdx)}
-                  className="flex items-center gap-3 p-2.5 rounded-xl bg-white/40 border border-white/60 hover:bg-white/55 transition-colors text-left"
+                <div
+                  key={`${video.id}-${offset}-${i}`}
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-white/40 border border-white/60 text-left flex-1"
+                  style={{
+                    animation: 'slideIn 0.35s ease',
+                  }}
                 >
                   <div className="relative w-[80px] h-[46px] rounded-lg overflow-hidden shrink-0">
                     <Image
@@ -78,18 +98,24 @@ export default function VideoShowcase({ videos }: VideoShowcaseProps) {
                     <p className="text-[12px] font-medium text-[var(--text-main)] line-clamp-2 leading-snug">{video.title}</p>
                     <p className="text-[10px] text-[var(--text-secondary)] mt-0.5">{video.category} · {video.date}</p>
                   </div>
-                  <span
-                    role="button"
-                    aria-label={`${video.title} 재생`}
-                    onClick={(e) => { e.stopPropagation(); setActiveId(video.id); }}
+                  <button
+                    aria-label={`${video.title} 선택`}
+                    onClick={() => setHeroIdx(originalIdx)}
                     className="w-7 h-7 rounded-full bg-white/30 border border-white/50 flex items-center justify-center text-[var(--text-secondary)] text-[10px] shrink-0 hover:bg-white/50 transition-colors"
                   >
                     ▶
-                  </span>
-                </button>
+                  </button>
+                </div>
               );
             })}
           </div>
+
+          <style>{`
+            @keyframes slideIn {
+              from { opacity: 0; transform: translateY(8px); }
+              to   { opacity: 1; transform: translateY(0); }
+            }
+          `}</style>
         </div>
       </div>
 

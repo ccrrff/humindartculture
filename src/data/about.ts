@@ -1,4 +1,3 @@
-// src/data/about.ts
 export interface TeamMember {
   name: string;
   role: string;
@@ -22,23 +21,25 @@ export interface AboutData {
 }
 
 export const aboutData: AboutData = {
-  ceoName: '홍길동',
+  ceoName: '대표',
   ceoRole: '대표이사',
   greeting:
-    '"아트컴퍼니는 일상 속 예술의 가치를 발견하고 나누는 일을 합니다. 2010년부터 공연, 전시, 문화행사를 통해 더 풍요로운 문화 생활을 만들어가고 있습니다."',
-  vision: '"사소한 일상의 숨겨진 아름다움을 발견합니다"',
-  mission: '예술과 일상의 경계를 허물고, 누구나 문화를 누리는 사회를 만든다',
+    '"휴마인드 아트컬쳐는 예술이 국경을 넘는 힘을 믿습니다. 서울 페스타 필하모닉 오케스트라를 중심으로 오케스트라·국제교류·크루즈·설치예술의 네 축을 통해 세계 무대에서 한국 문화예술의 가능성을 열어가겠습니다."',
+  vision: '"예술로 세계를, 세계로 문화를"',
+  mission: '오케스트라·국제교류·크루즈·설치예술을 통해 한국 문화예술을 세계 무대에 알린다',
   history: [
-    { year: '2024', description: '책읽는 한강공원 프로젝트 · 가을 문화축제 기획' },
-    { year: '2022', description: '서울시 우수 문화기획사 선정' },
-    { year: '2018', description: '전시기획팀 신설 · 현대미술 전시 시리즈 런칭' },
-    { year: '2015', description: '문화체육관광부 장관상 수상' },
-    { year: '2010', description: '아트컴퍼니 설립' },
+    { year: '2025', description: '서울 페스타 필하모닉 지브리&디즈니 OST FESTA 전국 투어' },
+    { year: '2024', description: 'tvN 유퀴즈온더블럭 — 춤추는 지휘자 백윤학 출연' },
+    { year: '2024', description: '한불수교 기념 오케스트라 공연 (파리) · 이준열사 기념 공연 (헤이그)' },
+    { year: '2024', description: '민간 국제문화교류 사업 수행기관 선정 · SBS 커튼콜 인터뷰' },
+    { year: '2023', description: '독일 BMVA 세계영상어워즈 수상 · 크루즈 문화사업 런칭' },
+    { year: '2022', description: '서울 페스타 필하모닉 오케스트라 창단' },
+    { year: '2020', description: '휴마인드 아트컬쳐 설립' },
   ],
   team: [
-    { name: '홍길동', role: '대표이사' },
-    { name: '김예술', role: '공연기획팀장' },
-    { name: '이전시', role: '전시기획팀장' },
-    { name: '박문화', role: '행사기획팀장' },
+    { name: '대표', role: '대표이사' },
+    { name: '백윤학', role: '수석 지휘자' },
+    { name: '공연기획팀', role: '오케스트라 · 국제교류' },
+    { name: '사업팀', role: '크루즈 · 설치예술' },
   ],
 };

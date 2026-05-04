@@ -1,21 +1,22 @@
 import Link from 'next/link';
 
 const ITEMS = [
-  { title: '공연 기획', desc: '클래식·무용·연극 기획 및 제작' },
-  { title: '전시 기획', desc: '현대미술·사진·설치 전시 기획' },
-  { title: '문화 행사', desc: '축제·문화포럼·커뮤니티 행사' },
+  { title: '오케스트라 운영', desc: '서울 페스타 필하모닉 오케스트라' },
+  { title: '국제문화교류', desc: '유럽 무대 · 민간 국제교류 사업' },
+  { title: '크루즈 문화사업', desc: '선상 공연 · 예술 여행 패키지' },
+  { title: '설치예술', desc: '공공미술 · 도심 설치 기획' },
 ];
 
 export default function BusinessList() {
   return (
-    <div className="glass p-8 rounded-[24px]">
+    <div className="glass p-8 rounded-[24px] flex flex-col h-full">
       <p className="text-[17px] font-semibold text-[var(--text-main)] mb-4">사업 안내</p>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 flex-1">
         {ITEMS.map(({ title, desc }) => (
           <Link
             key={title}
             href="/business"
-            className="flex items-center gap-4 p-3.5 rounded-xl bg-white/45 border border-white/65 hover:translate-x-0.5 transition-transform"
+            className="flex items-center gap-4 p-3.5 rounded-xl bg-white/45 border border-white/65 hover:translate-x-0.5 transition-transform flex-1"
           >
             <div className="min-w-0">
               <p className="text-[15px] font-medium text-[var(--text-main)]">{title}</p>

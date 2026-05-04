@@ -9,8 +9,8 @@ const SPRING = { type: 'spring' as const, stiffness: 220, damping: 26 };
 const EASE   = { duration: 0.46, ease: [0.55, 0, 1, 0.45] as [number,number,number,number] };
 
 const TZ_PAIRS = [
-  [{ code: 'SEOUL', tz: 'Asia/Seoul' },      { code: 'PARIS', tz: 'Europe/Paris' }],
-  [{ code: 'BERLIN', tz: 'Europe/Berlin' },  { code: 'AMS', tz: 'Europe/Amsterdam' }],
+  [{ code: 'SEOUL',  tz: 'Asia/Seoul' },       { code: 'BERLIN', tz: 'Europe/Berlin' }],
+  [{ code: 'PARIS',  tz: 'Europe/Paris' },      { code: 'AMS',    tz: 'Europe/Amsterdam' }],
 ] as const;
 
 function TickingClock({ pairs }: { pairs: readonly { code: string; tz: string }[] }) {
@@ -42,7 +42,6 @@ function TickingClock({ pairs }: { pairs: readonly { code: string; tz: string }[
 
   return (
     <div className="flex flex-col items-end gap-[3px] shrink-0 self-center">
-      {/* 도시 코드 */}
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={city.code}
@@ -56,13 +55,11 @@ function TickingClock({ pairs }: { pairs: readonly { code: string; tz: string }[
         </motion.span>
       </AnimatePresence>
 
-      {/* 시계 HH:MM:SS */}
       <div className="flex items-center font-mono text-[18px] font-medium text-[var(--text-secondary)] tabular-nums leading-none">
         <span>{t.h}</span>
         <span className="opacity-30 mx-[2px]">:</span>
         <span>{t.m}</span>
         <span className="opacity-30 mx-[2px]">:</span>
-        {/* 째깍 — 초(s) 슬라이드 */}
         <span className="inline-block overflow-hidden leading-none" style={{ height: '1em', width: '2ch' }}>
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
@@ -124,7 +121,7 @@ export default function LayoutD() {
   const lineShow = cp !== 'exiting';
 
   return (
-    <div className="glass rounded-[28px] px-10 py-7 md:px-16 md:py-9 flex flex-col gap-4 overflow-hidden">
+    <div className="glass rounded-[28px] px-5 py-5 md:px-16 md:py-9 flex flex-col gap-4 overflow-hidden">
       <style>{`@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}`}</style>
       <p className="text-[10px] tracking-[0.45em] uppercase text-[var(--text-secondary)]">Humind Art Culture</p>
 

@@ -42,3 +42,10 @@ next-env.d.ts
 .superpowers/
 .playwright-mcp/
 public/layout-preview.html
+
+# 로컬 전용 브리프 (커밋 금지)
+_client-brief.md
+
+# 루트 스크린샷 및 로고 원본
+/*.png
+/*.png:Zone.Identifier
