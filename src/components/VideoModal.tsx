@@ -27,17 +27,20 @@ export default function VideoModal({ videoId, onClose }: VideoModalProps) {
       </button>
 
       <div
-        className="relative glass rounded-2xl overflow-hidden p-2"
+        className="relative glass rounded-2xl overflow-hidden p-2 w-[min(720px,calc(100vw-2rem))]"
         onClick={(e) => e.stopPropagation()}
       >
-        <YouTube
-          videoId={videoId}
-          opts={{
-            width: '720',
-            height: '405',
-            playerVars: { autoplay: 1 },
-          }}
-        />
+        <div className="aspect-video w-full">
+          <YouTube
+            videoId={videoId}
+            opts={{
+              width: '100%',
+              height: '100%',
+              playerVars: { autoplay: 1 },
+            }}
+            className="w-full h-full"
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,5 @@
 import LayoutD from '@/components/heroes/LayoutD';
 import VideoShowcase from '@/components/VideoShowcase';
-import AboutCard from '@/components/AboutCard';
-import BusinessList from '@/components/BusinessList';
 import { videos } from '@/data/videos';
 
 export default function Home() {
@@ -11,10 +9,6 @@ export default function Home() {
     <>
       <LayoutD />
       <VideoShowcase videos={sorted} />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <AboutCard />
-        <BusinessList />
-      </div>
     </>
   );
 }

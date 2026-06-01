@@ -17,7 +17,7 @@ const AUTO_INTERVAL = 3200;
 export default function VideoShowcase({ videos }: VideoShowcaseProps) {
   const [heroIdx, setHeroIdx] = useState(0);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [offset, setOffset] = useState(0); // 사이드 리스트 시작 인덱스
+  const [offset, setOffset] = useState(0);
 
   const hero = videos[heroIdx];
 
@@ -77,14 +77,13 @@ export default function VideoShowcase({ videos }: VideoShowcaseProps) {
 
           <div className="flex flex-col gap-2.5 flex-1 overflow-hidden">
             {sideList.map((video, i) => {
-              const originalIdx = videos.indexOf(video);
               return (
-                <div
+                <button
                   key={`${video.id}-${offset}-${i}`}
-                  className="flex items-center gap-3 p-2.5 rounded-xl bg-white/40 border border-white/60 text-left flex-1"
-                  style={{
-                    animation: 'slideIn 0.35s ease',
-                  }}
+                  className="flex items-center gap-3 p-2.5 rounded-xl bg-white/40 border border-white/60 text-left flex-1 hover:bg-white/60 transition-colors cursor-pointer"
+                  style={{ animation: 'slideIn 0.35s ease' }}
+                  onClick={() => setActiveId(video.id)}
+                  aria-label={`${video.title} 재생`}
                 >
                   <div className="relative w-[80px] h-[46px] rounded-lg overflow-hidden shrink-0">
                     <Image
@@ -93,19 +92,15 @@ export default function VideoShowcase({ videos }: VideoShowcaseProps) {
                       fill
                       className="object-cover"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/15">
+                      <span className="w-6 h-6 rounded-full bg-white/30 border border-white/60 flex items-center justify-center text-white text-[9px]">▶</span>
+                    </div>
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-[12px] font-medium text-[var(--text-main)] line-clamp-2 leading-snug">{video.title}</p>
                     <p className="text-[10px] text-[var(--text-secondary)] mt-0.5">{video.category} · {video.date}</p>
                   </div>
-                  <button
-                    aria-label={`${video.title} 선택`}
-                    onClick={() => setHeroIdx(originalIdx)}
-                    className="w-7 h-7 rounded-full bg-white/30 border border-white/50 flex items-center justify-center text-[var(--text-secondary)] text-[10px] shrink-0 hover:bg-white/50 transition-colors"
-                  >
-                    ▶
-                  </button>
-                </div>
+                </button>
               );
             })}
           </div>
