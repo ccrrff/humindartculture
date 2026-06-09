@@ -121,21 +121,11 @@ export default function LayoutD() {
   const lineShow = cp !== 'exiting';
 
   return (
-    <div className="relative rounded-[28px] px-5 py-5 md:px-16 md:py-9 flex flex-col gap-4 overflow-hidden">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/heromovie.mp4" type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-black/45" />
+    <div className="glass rounded-[28px] px-5 py-5 md:px-16 md:py-9 flex flex-col gap-4 overflow-hidden">
       <style>{`@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}`}</style>
 
-      <div className="relative z-10 flex flex-col gap-4">
-        <p className="text-[10px] tracking-[0.45em] uppercase text-white/60">Humind Art Culture</p>
+      <div className="flex flex-col gap-4">
+        <p className="text-[10px] tracking-[0.45em] uppercase text-[var(--text-secondary)]">Humind Art Culture</p>
 
         <div className="flex flex-col gap-3 w-full">
 
@@ -146,13 +136,13 @@ export default function LayoutD() {
             transition={lTr}
           >
             <span
-              className="leading-none text-white select-none shrink-0"
+              className="leading-none text-[var(--text-main)] select-none shrink-0"
               style={{ fontSize: 'clamp(64px, 13vw, 190px)', fontFamily: 'var(--font-east-sea-dokdo)' }}
             >
               세계를
             </span>
             <motion.div
-              className="flex-1 bg-white/30"
+              className="flex-1 bg-black/20"
               style={{ height: '2px', transformOrigin: 'left' }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: lineShow ? 1 : 0 }}
@@ -169,13 +159,13 @@ export default function LayoutD() {
             transition={rTr}
           >
             <span
-              className="leading-none text-white select-none shrink-0"
+              className="leading-none text-[var(--text-main)] select-none shrink-0"
               style={{ fontSize: 'clamp(40px, 8vw, 116px)', fontFamily: 'var(--font-east-sea-dokdo)' }}
             >
               무대로
             </span>
             <motion.div
-              className="flex-1 border-b border-dashed border-white/30"
+              className="flex-1 border-b border-dashed border-black/20"
               style={{ transformOrigin: 'left' }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: lineShow ? 1 : 0 }}
@@ -189,15 +179,15 @@ export default function LayoutD() {
         <AnimatePresence>
           {impact && (
             <motion.div key="sw" initial={{scaleX:0,opacity:1}} animate={{scaleX:1,opacity:0}}
-              transition={{duration:0.38,ease:'easeOut'}} className="h-[1.5px] bg-white origin-center -mt-2" />
+              transition={{duration:0.38,ease:'easeOut'}} className="h-[1.5px] bg-[var(--text-main)] origin-center -mt-2" />
           )}
         </AnimatePresence>
 
         <div className="flex items-center gap-3">
-          <div className="h-px w-8 bg-white/30 shrink-0" />
-          <p className="text-[15px] md:text-[18px] text-white/70">
-            <span className="text-white font-bold">
-              {kw}<span className="inline-block w-[2px] h-[0.78em] bg-white ml-0.5 align-middle"
+          <div className="h-px w-8 bg-black/20 shrink-0" />
+          <p className="text-[15px] md:text-[18px] text-[var(--text-secondary)]">
+            <span className="text-[var(--text-main)] font-bold">
+              {kw}<span className="inline-block w-[2px] h-[0.78em] bg-[var(--text-main)] ml-0.5 align-middle"
                 style={{animation:isDeleting?'none':'blink 0.85s step-end infinite'}} />
             </span>
             &nbsp;세계를 잇다
