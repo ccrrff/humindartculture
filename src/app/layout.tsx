@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, East_Sea_Dokdo } from 'next/font/google';
 import './globals.css';
 import GlassNav from '@/components/GlassNav';
 import GlassFooter from '@/components/GlassFooter';
 
 const inter = Inter({ subsets: ['latin'] });
+export const eastSeaDokdo = East_Sea_Dokdo({ subsets: ['latin'], weight: '400', variable: '--font-east-sea-dokdo' });
 
 export const metadata: Metadata = {
   title: '휴마인드 아트컬쳐',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body className={inter.className} style={{ background: 'var(--body-bg)' }}>
+      <body className={`${inter.className} ${eastSeaDokdo.variable}`} style={{ background: 'var(--body-bg)' }}>
         <GlassNav />
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 pt-[32px] pb-10 flex flex-col gap-4 min-h-screen">
           {children}
