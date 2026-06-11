@@ -49,13 +49,13 @@ function TickingClock({ pairs }: { pairs: readonly { code: string; tz: string }[
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -3 }}
           transition={{ duration: 0.22 }}
-          className="text-[12px] tracking-[0.35em] uppercase text-white/60 font-semibold leading-none"
+          className="text-[12px] tracking-[0.35em] uppercase text-[var(--text-main)] font-semibold leading-none"
         >
           {city.code}
         </motion.span>
       </AnimatePresence>
 
-      <div className="flex items-center font-mono text-[18px] font-medium text-white/60 tabular-nums leading-none">
+      <div className="flex items-center font-mono text-[18px] font-medium text-[var(--text-main)] tabular-nums leading-none">
         <span>{t.h}</span>
         <span className="opacity-30 mx-[2px]">:</span>
         <span>{t.m}</span>
@@ -136,6 +136,7 @@ export default function LayoutD() {
             transition={lTr}
           >
             <span
+              data-hero-text="세계를"
               className="leading-none text-[var(--text-main)] select-none shrink-0"
               style={{ fontSize: 'clamp(64px, 13vw, 190px)', fontFamily: 'var(--font-east-sea-dokdo)' }}
             >
@@ -159,6 +160,7 @@ export default function LayoutD() {
             transition={rTr}
           >
             <span
+              data-hero-text="무대로"
               className="leading-none text-[var(--text-main)] select-none shrink-0"
               style={{ fontSize: 'clamp(40px, 8vw, 116px)', fontFamily: 'var(--font-east-sea-dokdo)' }}
             >

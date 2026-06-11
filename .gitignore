@@ -49,3 +49,7 @@ _client-brief.md
 # 루트 스크린샷 및 로고 원본
 /*.png
 /*.png:Zone.Identifier
+
+# 루트 임시 파일 및 Windows Zone.Identifier
+/heromovie.mp4
+*.Zone.Identifier

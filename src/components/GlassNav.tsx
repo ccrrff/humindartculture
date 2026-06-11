@@ -25,7 +25,7 @@ export default function GlassNav() {
           className="mr-auto flex items-center"
           onClick={() => setOpen(false)}
         >
-          <Image data-nav-logo src="/logo4.png" alt="휴마인드 아트컬쳐" width={233} height={60} className="h-[36px] md:h-[60px] w-auto" />
+          <Image data-nav-logo src="/logo-main.png" alt="휴마인드 아트컬쳐" width={569} height={141} className="h-[36px] md:h-[60px] w-auto" />
         </Link>
 
         {/* 데스크톱 메뉴 */}
