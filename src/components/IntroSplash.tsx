@@ -16,7 +16,7 @@ function getElRect(el: HTMLElement): FlyRect {
 function DoorContent({ side, hideText }: { side: 'left' | 'right'; hideText: boolean }) {
   return (
     <div
-      className="absolute inset-0 h-full"
+      className="absolute inset-0 h-full bg-[#0a0a0a]"
       style={{ width: '200%', left: side === 'left' ? 0 : '-100%' }}
     >
       <video autoPlay muted loop playsInline
