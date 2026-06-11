@@ -63,7 +63,7 @@ function DoorContent({ side, hideText }: { side: 'left' | 'right'; hideText: boo
   );
 }
 
-export default function IntroSplash({ onDone }: { onDone: () => void }) {
+export default function IntroSplash({ onDone, onSplitting }: { onDone: () => void; onSplitting?: () => void }) {
   const [splitting, setSplitting] = useState(false);
   const [flyingEls, setFlyingEls] = useState<FlyingEl[]>([]);
 
@@ -82,6 +82,7 @@ export default function IntroSplash({ onDone }: { onDone: () => void }) {
       }
     }
 
+    onSplitting?.();
     setSplitting(true);
     setFlyingEls(flying);
   };

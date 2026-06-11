@@ -6,14 +6,21 @@ import IntroSplash from '@/components/IntroSplash';
 import { videos } from '@/data/videos';
 
 export default function Home() {
-  const [introComplete, setIntroComplete] = useState(false);
+  const [introPhase, setIntroPhase] = useState<'splash' | 'splitting' | 'done'>('splash');
   const sorted = [...videos].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <>
-      {!introComplete && <IntroSplash onDone={() => setIntroComplete(true)} />}
-      <LayoutD />
-      <VideoShowcase videos={sorted} />
+      {introPhase !== 'done' && (
+        <IntroSplash
+          onSplitting={() => setIntroPhase('splitting')}
+          onDone={() => setIntroPhase('done')}
+        />
+      )}
+      <div style={introPhase === 'splash' ? { visibility: 'hidden' } : undefined}>
+        <LayoutD />
+        <VideoShowcase videos={sorted} />
+      </div>
     </>
   );
 }
