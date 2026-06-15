@@ -1,17 +1,33 @@
+import Image from 'next/image';
 import { aboutData } from '@/data/about';
 
 export default function AboutPage() {
-  const { ceoName, ceoRole, greeting, vision, mission, history } = aboutData;
+  const { ceoName, ceoRole, ceoImage, greeting, vision, mission, history } = aboutData;
 
   return (
     <div className="glass p-8 rounded-[28px] flex flex-col gap-8">
       {/* 대표 인사말 */}
       <section>
-        <span className="inline-block text-[11px] tracking-[0.12em] uppercase text-[var(--text-secondary)] bg-white/50 border border-white/70 rounded-full px-3 py-1 mb-5">
-          대표 인사말
-        </span>
-        <p className="text-[15px] text-[var(--text-main)] leading-relaxed mb-2">{greeting}</p>
-        <p className="text-[13px] text-[var(--text-secondary)]">{ceoName} · {ceoRole}</p>
+        <div className="flex gap-8 items-start">
+          {ceoImage && (
+            <div className="shrink-0 w-[200px] h-[270px] rounded-[12px] overflow-hidden">
+              <Image
+                src={ceoImage}
+                alt={`${ceoName} 대표이사`}
+                width={200}
+                height={270}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+          <div className="flex flex-col gap-3 justify-center h-[270px]">
+            <span className="inline-block text-[11px] tracking-[0.12em] uppercase text-[var(--text-secondary)] bg-white/50 border border-white/70 rounded-full px-3 py-1 w-fit">
+              대표 인사말
+            </span>
+            <p className="text-[18px] text-[var(--text-main)] leading-relaxed whitespace-pre-line">{greeting}</p>
+            <p className="text-[14px] text-[var(--text-secondary)]">{ceoName} · {ceoRole}</p>
+          </div>
+        </div>
       </section>
 
       {/* 비전·미션 */}

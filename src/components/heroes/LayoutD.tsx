@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FlowingCities from '@/components/FlowingCities';
@@ -127,52 +128,39 @@ export default function LayoutD() {
       <div className="flex flex-col gap-4">
         <p className="text-[10px] tracking-[0.45em] uppercase text-[var(--text-secondary)]">Humind Art Culture</p>
 
-        <div className="flex flex-col gap-3 w-full">
+        <div className="flex items-center gap-4 w-full">
 
           <motion.div
-            className="flex items-center gap-4 w-full"
+            data-hero-image
+            className="shrink-0"
             initial={{ x: -700, opacity: 0 }}
             animate={lAnim}
             transition={lTr}
           >
-            <span
-              data-hero-text="세계를"
-              className="leading-none text-[var(--text-main)] select-none shrink-0"
-              style={{ fontSize: 'clamp(64px, 13vw, 190px)', fontFamily: 'var(--font-east-sea-dokdo)' }}
-            >
-              세계를
-            </span>
-            <motion.div
-              className="flex-1 bg-black/20"
-              style={{ height: '2px', transformOrigin: 'left' }}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: lineShow ? 1 : 0 }}
-              transition={lineShow ? { delay: 0.55, duration: 0.55, ease: 'easeOut' } : { duration: 0.2 }}
+            <Image
+              src="/worldtoarthero.png"
+              alt="worldtoarthero"
+              width={600}
+              height={280}
+              className="h-[clamp(100px,18vw,240px)] w-auto object-contain"
             />
-            <TickingClock pairs={TZ_PAIRS[0]} />
           </motion.div>
 
           <motion.div
-            className="flex items-center gap-4 w-full"
-            style={{ paddingLeft: 'clamp(32px, 7vw, 110px)' }}
+            className="flex-1 bg-black/20"
+            style={{ height: '2px', transformOrigin: 'left' }}
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: lineShow ? 1 : 0 }}
+            transition={lineShow ? { delay: 0.55, duration: 0.55, ease: 'easeOut' } : { duration: 0.2 }}
+          />
+
+          <motion.div
+            className="flex flex-col items-end gap-4 shrink-0"
             initial={{ x: 700, opacity: 0 }}
             animate={rAnim}
             transition={rTr}
           >
-            <span
-              data-hero-text="무대로"
-              className="leading-none text-[var(--text-main)] select-none shrink-0"
-              style={{ fontSize: 'clamp(40px, 8vw, 116px)', fontFamily: 'var(--font-east-sea-dokdo)' }}
-            >
-              무대로
-            </span>
-            <motion.div
-              className="flex-1 border-b border-dashed border-black/20"
-              style={{ transformOrigin: 'left' }}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: lineShow ? 1 : 0 }}
-              transition={lineShow ? { delay: 0.7, duration: 0.45, ease: 'easeOut' } : { duration: 0.2 }}
-            />
+            <TickingClock pairs={TZ_PAIRS[0]} />
             <TickingClock pairs={TZ_PAIRS[1]} />
           </motion.div>
 

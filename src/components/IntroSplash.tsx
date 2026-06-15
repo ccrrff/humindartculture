@@ -1,16 +1,16 @@
 'use client';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const DOOR_EASE = [0.86, 0, 0.07, 1] as [number, number, number, number];
-const TEXT_SHADOW = '0 2px 40px rgba(0,0,0,0.6), 0 1px 8px rgba(0,0,0,0.4)';
 
-type FlyRect = { x: number; y: number; fs: number };
-type FlyingEl = { key: string; text: string; from: FlyRect; to: FlyRect };
+type FlyRect = { x: number; y: number; w: number; h: number };
+type FlyingImg = { key: string; src: string; from: FlyRect; to: FlyRect };
 
 function getElRect(el: HTMLElement): FlyRect {
   const r = el.getBoundingClientRect();
-  return { x: r.left, y: r.top, fs: parseFloat(getComputedStyle(el).fontSize) };
+  return { x: r.left, y: r.top, w: r.width, h: r.height };
 }
 
 function DoorContent({ side, hideText }: { side: 'left' | 'right'; hideText: boolean }) {
@@ -31,24 +31,18 @@ function DoorContent({ side, hideText }: { side: 'left' | 'right'; hideText: boo
         style={{ visibility: hideText ? 'hidden' : 'visible' }}
       >
         <motion.div
-          data-intro-text="세계를"
-          className="leading-none text-white"
-          style={{ fontSize: 'clamp(120px, 18vw, 220px)', fontFamily: 'var(--font-east-sea-dokdo)', textShadow: TEXT_SHADOW }}
+          data-intro-image
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.85, ease: 'easeOut' }}
         >
-          세계를
-        </motion.div>
-        <motion.div
-          data-intro-text="무대로"
-          className="leading-none text-white"
-          style={{ fontSize: 'clamp(84px, 13vw, 160px)', fontFamily: 'var(--font-east-sea-dokdo)', textShadow: TEXT_SHADOW }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.85, ease: 'easeOut' }}
-        >
-          무대로
+          <Image
+            src="/worldtoart.png"
+            alt="worldtoart"
+            width={600}
+            height={280}
+            className="w-[clamp(260px,45vw,540px)] h-auto object-contain drop-shadow-[0_2px_40px_rgba(0,0,0,0.6)]"
+          />
         </motion.div>
         <motion.p
           className="mt-6 text-[9px] tracking-[0.28em] uppercase text-white/40"
@@ -65,26 +59,24 @@ function DoorContent({ side, hideText }: { side: 'left' | 'right'; hideText: boo
 
 export default function IntroSplash({ onDone, onSplitting }: { onDone: () => void; onSplitting?: () => void }) {
   const [splitting, setSplitting] = useState(false);
-  const [flyingEls, setFlyingEls] = useState<FlyingEl[]>([]);
+  const [flyingImgs, setFlyingImgs] = useState<FlyingImg[]>([]);
 
   const trigger = () => {
-    const pairs = [
-      { key: '세계를', introSel: '[data-intro-text="세계를"]', heroSel: '[data-hero-text="세계를"]' },
-      { key: '무대로', introSel: '[data-intro-text="무대로"]', heroSel: '[data-hero-text="무대로"]' },
-    ];
-
-    const flying: FlyingEl[] = [];
-    for (const { key, introSel, heroSel } of pairs) {
-      const src = document.querySelector(introSel) as HTMLElement | null;
-      const dst = document.querySelector(heroSel) as HTMLElement | null;
-      if (src && dst) {
-        flying.push({ key, text: key, from: getElRect(src), to: getElRect(dst) });
-      }
+    const flying: FlyingImg[] = [];
+    const introEl = document.querySelector('[data-intro-image]') as HTMLElement | null;
+    const heroEl = document.querySelector('[data-hero-image]') as HTMLElement | null;
+    if (introEl && heroEl) {
+      flying.push({
+        key: 'worldtoart',
+        src: '/worldtoart.png',
+        from: getElRect(introEl),
+        to: getElRect(heroEl),
+      });
     }
 
     onSplitting?.();
     setSplitting(true);
-    setFlyingEls(flying);
+    setFlyingImgs(flying);
   };
 
   useEffect(() => {
@@ -97,7 +89,7 @@ export default function IntroSplash({ onDone, onSplitting }: { onDone: () => voi
       {/* ── 왼쪽 문 ── */}
       <motion.div
         className="fixed top-0 left-0 h-full overflow-hidden z-[9999]"
-        style={{ width: '50%' }}
+        style={{ width: 'calc(50% + 1px)' }}
         animate={splitting ? { x: '-100%' } : { x: '0%' }}
         transition={{ duration: 1, ease: DOOR_EASE }}
         onAnimationComplete={() => splitting && onDone()}
@@ -115,18 +107,17 @@ export default function IntroSplash({ onDone, onSplitting }: { onDone: () => voi
         <DoorContent side="right" hideText={splitting} />
       </motion.div>
 
-      {/* ── 날아가는 텍스트 오버레이 ── */}
-      {flyingEls.map(el => (
-        <motion.div
+      {/* ── 날아가는 이미지 오버레이 ── */}
+      {flyingImgs.map(el => (
+        <motion.img
           key={el.key}
-          className="fixed top-0 left-0 z-[99998] pointer-events-none leading-none text-white whitespace-nowrap"
-          style={{ fontFamily: 'var(--font-east-sea-dokdo)', textShadow: TEXT_SHADOW }}
-          initial={{ x: el.from.x, y: el.from.y, fontSize: el.from.fs, opacity: 1 }}
-          animate={{ x: el.to.x, y: el.to.y, fontSize: el.to.fs, opacity: [1, 1, 0] }}
+          src={el.src}
+          alt=""
+          className="fixed top-0 left-0 z-[99998] pointer-events-none object-contain"
+          initial={{ x: el.from.x, y: el.from.y, width: el.from.w, height: el.from.h, opacity: 1 }}
+          animate={{ x: el.to.x, y: el.to.y, width: el.to.w, height: el.to.h, opacity: [1, 1, 0] }}
           transition={{ duration: 0.95, ease: DOOR_EASE }}
-        >
-          {el.text}
-        </motion.div>
+        />
       ))}
 
       {/* ── SKIP ── */}

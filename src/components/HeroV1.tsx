@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const TICKER = ['SEOUL', 'BERLIN', 'PARIS', 'AMSTERDAM', 'ORCHESTRA', 'CRUISE', 'INSTALLATION'];
@@ -51,7 +52,20 @@ export default function HeroV1() {
         </motion.span>
 
         <div className="text-[52px] md:text-[80px] font-bold leading-tight text-white">
-          <AnimatedLine text="세계를 무대로" baseDelay={0} />
+          <motion.span
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.4, ease: 'easeOut' }}
+          >
+            <Image
+              src="/worldtoart.png"
+              alt="worldtoart"
+              width={480}
+              height={80}
+              className="h-[52px] md:h-[80px] w-auto object-contain"
+            />
+          </motion.span>
           <AnimatedLine text="예술을 연주하다" baseDelay={8} />
         </div>
 
