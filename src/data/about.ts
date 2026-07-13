@@ -38,7 +38,6 @@ export const aboutData: AboutData = {
     '(주)K-Motion Lab',
     '한류대중문화예술원',
     '휴마인드필하모닉 오케스트라',
-    '아름다운수산 전복양식',
   ],
   ceoPositions: [
     '(사)한국예술문화단체총연합회 미래전략위원회 문화산업정책분과위원장',
